@@ -1,4 +1,4 @@
-﻿/*  ChaserAssistand - a tool to fetch stormchasing information 
+﻿/*  ChaserAssistant - a tool to fetch stormchasing information 
 
     Copyright(C) 2020 Willy Weinmann
 
