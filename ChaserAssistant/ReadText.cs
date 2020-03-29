@@ -24,7 +24,7 @@ namespace ChaserAssistant
 {
     public static class ReadText
     {
-        public static void GetWebsiteContent(string url)
+        public static string GetWebsiteContent(string url)
         {
             using (WebClient client = new WebClient())
             {
@@ -37,17 +37,20 @@ namespace ChaserAssistant
                     var data = client.DownloadData(url);
                     var encoded = System.Text.Encoding.UTF7.GetString(data);
 
-                    Console.WriteLine(encoded);
+                    return encoded;
+                    //Console.WriteLine(encoded);
                 }
                 catch (WebException we)
                 {
                     // WebException.Status holds useful information 
                     Console.WriteLine("WebException: " + we.Message + "\n" + we.Status.ToString() + "\nURL: " + MainClass.dwdURL);
+                    return we.Message;
                 }
                 catch (NotSupportedException ne)
                 {
                     // other errors 
                     Console.WriteLine("NotSupportedException: " + ne.Message);
+                    return ne.Message;
                 }
 
             }

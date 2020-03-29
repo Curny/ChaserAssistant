@@ -49,6 +49,8 @@
     <Compile Include="CheckWarnung.cs" />
     <Compile Include="Warnlagebericht2.cs" />
     <Compile Include="Wochenvorhersage.cs" />
+    <Compile Include="TextOutput.cs" />
+    <Compile Include="CheckSeeWarnungen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

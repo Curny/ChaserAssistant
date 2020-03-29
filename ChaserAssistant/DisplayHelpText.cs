@@ -30,8 +30,8 @@ namespace ChaserAssistant
             Console.WriteLine("\n==============================================");
             Console.WriteLine("=== ChaserAssistant Version " + Assembly.GetEntryAssembly().GetName().Version + " ===");
             Console.WriteLine("==============================================");
-
             Console.WriteLine("\nArguments:");
+
             Console.WriteLine("--wl <Region> : Warnlagebericht Region des DWD");
             Console.WriteLine("\tRegionen:");
             Console.WriteLine("\t\tBB : Berlin + Brandenburg");
@@ -46,9 +46,22 @@ namespace ChaserAssistant
             Console.WriteLine("\t\tSA : Sachsen-Anhalt");
             Console.WriteLine("\t\tSHH: Schleswig-Holstein + Hamburg");
             Console.WriteLine("\t\tTH : Thüringen");
+
             Console.WriteLine("\n--wv <Region> : Wochenvorhersage");
             Console.WriteLine("\tRegionen:");
             Console.WriteLine("\t\tDE: Deutschland");
+
+            Console.WriteLine("\n--warn <Autokennzeichen> : aktuelle Wetterwarnungen für Gebiet ausgeben");
+
+            Console.WriteLine("\n--see <gebiet> : Seewetterwarnungen, z. B. KA für Kattegatt");
+            Console.WriteLine("\tRegionen:");
+            Console.WriteLine("\t\tKA: Kattegatt");
+            Console.WriteLine("\t\tBO: Boddengewässe Ost");
+            Console.WriteLine("\t\tFO: Forties");
+            Console.WriteLine("\t\tHE: Helgoland");
+            Console.WriteLine("\t\tIJ: Ijsselmeer");
+            Console.WriteLine("\t\tKO: Engl. Kanal Ostteil");
+            Console.WriteLine("\t\tKW: Engl. Kanal Westteil");
 
             Console.WriteLine("\n--checkdir <URL> : Webverzeichnis auslesen");
             Console.WriteLine();

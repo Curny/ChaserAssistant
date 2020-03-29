@@ -151,9 +151,50 @@ namespace ChaserAssistant
                             }
                             break;
 
-                        case "--warnung":
-                            CheckWarnung.CreateCollection(MainClass.BW_PATH);
-                            break;                        
+                        case "--warn":
+                            try
+                            {
+                                if (ReactOnArgs.Do(args[i], args[i + 1]) == 1)
+                                {
+                                    Console.WriteLine("***** FEHLER: unbekannte Region");
+                                    Environment.Exit(1);
+                                }
+
+                            }
+                            catch (IndexOutOfRangeException)
+                            {
+                                Console.WriteLine("*** FEHLER: kein Landkreis angegeben");
+                                Environment.Exit(1);
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                                Environment.Exit(1);
+                            }
+                            
+                            break;
+                        case "--see":
+                            try
+                            {
+                                if (ReactOnArgs.Do(args[i], args[i + 1]) == 1)
+                                {
+                                    Console.WriteLine("***** FEHLER: unbekannte Region");
+                                    Environment.Exit(1);
+                                }
+
+                            }
+                            catch (IndexOutOfRangeException)
+                            {
+                                Console.WriteLine("*** FEHLER: kein Landkreis angegeben");
+                                Environment.Exit(1);
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                                Environment.Exit(1);
+                            }
+
+                            break;
                         default:
                             break;
                     }

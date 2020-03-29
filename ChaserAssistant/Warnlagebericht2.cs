@@ -199,7 +199,7 @@ namespace ChaserAssistant
                 case "de":
                     file = GetFilenameOnServer(MainClass.DE_PATH);
                     MainClass.dwdURL = MainClass.DE_PATH + file;
-                    ReadText.GetWebsiteContent(MainClass.dwdURL);
+                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
                     noerrors = true;
                     file = string.Empty;
                     break;
@@ -208,7 +208,7 @@ namespace ChaserAssistant
                 case "bw":
                     file = GetFilenameOnServer(MainClass.BW_PATH);
                     MainClass.dwdURL = MainClass.BW_PATH + file;
-                    ReadText.GetWebsiteContent(MainClass.dwdURL);
+                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
                     noerrors = true;
                     file = string.Empty;
                     break;
@@ -217,7 +217,7 @@ namespace ChaserAssistant
                 case "by":
                     file = GetFilenameOnServer(MainClass.BY_PATH);
                     MainClass.dwdURL = MainClass.BY_PATH + file;
-                    ReadText.GetWebsiteContent(MainClass.dwdURL);
+                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
                     noerrors = true;
                     file = string.Empty;
                     break;
@@ -226,7 +226,7 @@ namespace ChaserAssistant
                 case "rps":
                     file = GetFilenameOnServer(MainClass.OF_PATH);
                     MainClass.dwdURL = MainClass.OF_PATH + file;
-                    ReadText.GetWebsiteContent(MainClass.dwdURL);
+                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
                     noerrors = true;
                     file = string.Empty;
                     break;
@@ -235,7 +235,7 @@ namespace ChaserAssistant
                 case "he":
                     file = GetFilenameOnServer(MainClass.OF_PATH);
                     MainClass.dwdURL = MainClass.OF_PATH + file;
-                    ReadText.GetWebsiteContent(MainClass.dwdURL);
+                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
                     noerrors = true;
                     file = string.Empty;
                     break;
@@ -244,7 +244,7 @@ namespace ChaserAssistant
                 case "bb":
                     file = GetFilenameOnServer(MainClass.PD_PATH);
                     MainClass.dwdURL = MainClass.PD_PATH + file;
-                    ReadText.GetWebsiteContent(MainClass.dwdURL);
+                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
                     noerrors = true;
                     file = string.Empty;
                     break;
@@ -253,7 +253,7 @@ namespace ChaserAssistant
                 case "mv":
                     file = GetFilenameOnServer(MainClass.PD_PATH);
                     MainClass.dwdURL = MainClass.PD_PATH + file;
-                    ReadText.GetWebsiteContent(MainClass.dwdURL);
+                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
                     noerrors = true;
                     file = string.Empty;
                     break;
@@ -262,7 +262,7 @@ namespace ChaserAssistant
                 case "sx":
                     file = GetFilenameOnServer(MainClass.LZ_PATH);
                     MainClass.dwdURL = MainClass.LZ_PATH + file;
-                    ReadText.GetWebsiteContent(MainClass.dwdURL);
+                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
                     noerrors = true;
                     file = string.Empty;
                     break;
@@ -271,7 +271,7 @@ namespace ChaserAssistant
                 case "sa":
                     file = GetFilenameOnServer(MainClass.LZ_PATH);
                     MainClass.dwdURL = MainClass.LZ_PATH + file;
-                    ReadText.GetWebsiteContent(MainClass.dwdURL);
+                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
                     noerrors = true;
                     file = string.Empty;
                     break;
@@ -280,7 +280,7 @@ namespace ChaserAssistant
                 case "th":
                     file = GetFilenameOnServer(MainClass.LZ_PATH);
                     MainClass.dwdURL = MainClass.LZ_PATH + file;
-                    ReadText.GetWebsiteContent(MainClass.dwdURL);
+                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
                     noerrors = true;
                     file = string.Empty;
                     break;
@@ -289,7 +289,7 @@ namespace ChaserAssistant
                 case "nb":
                     file = GetFilenameOnServer(MainClass.HA_PATH);
                     MainClass.dwdURL = MainClass.HA_PATH + file;
-                    ReadText.GetWebsiteContent(MainClass.dwdURL);
+                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
                     noerrors = true;
                     file = string.Empty;
                     break;
@@ -298,7 +298,7 @@ namespace ChaserAssistant
                 case "shh":
                     file = GetFilenameOnServer(MainClass.HA_PATH);
                     MainClass.dwdURL = MainClass.HA_PATH + file;
-                    ReadText.GetWebsiteContent(MainClass.dwdURL);
+                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
                     noerrors = true;
                     file = string.Empty;
                     break;
@@ -307,13 +307,13 @@ namespace ChaserAssistant
                 case "nrw":
                     file = GetFilenameOnServer(MainClass.EM_PATH);
                     MainClass.dwdURL = MainClass.EM_PATH + file;
-                    ReadText.GetWebsiteContent(MainClass.dwdURL);
+                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
                     noerrors = true;
                     file = string.Empty;
                     break;
 
                 default:
-                    Console.WriteLine("Default ....: " + MainClass.dwdURL);
+
                     noerrors = false;
                     break;
             }

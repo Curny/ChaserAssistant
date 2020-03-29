@@ -24,7 +24,7 @@ using System.Text;
 
 namespace ChaserAssistant
 {
-    public static class CheckWarnung
+    public static class CheckSeeWarnungen
     {
         public static Dictionary<int, string> Warnungen = new Dictionary<int, string>();
         public static Dictionary<int, string> Urls = new Dictionary<int, string>();
@@ -44,15 +44,15 @@ namespace ChaserAssistant
 
             StringBuilder warntexte = new StringBuilder();
 
-                Urls.Add(1, "https://opendata.dwd.de/weather/alerts/txt/GER/");
-                Urls.Add(2, "https://opendata.dwd.de/weather/alerts/txt/SU/");
-                Urls.Add(3, "https://opendata.dwd.de/weather/alerts/txt/MS/");
-                Urls.Add(4, "https://opendata.dwd.de/weather/alerts/txt/OF/");
-                Urls.Add(5, "https://opendata.dwd.de/weather/alerts/txt/PD/");
-                Urls.Add(6, "https://opendata.dwd.de/weather/alerts/txt/LZ/");
-                Urls.Add(7, "https://opendata.dwd.de/weather/alerts/txt/HA/");
-                Urls.Add(8, "https://opendata.dwd.de/weather/alerts/txt/EM/");        
-    
+            Urls.Add(1, "https://opendata.dwd.de/weather/alerts/txt/GER/");
+            Urls.Add(2, "https://opendata.dwd.de/weather/alerts/txt/SU/");
+            Urls.Add(3, "https://opendata.dwd.de/weather/alerts/txt/MS/");
+            Urls.Add(4, "https://opendata.dwd.de/weather/alerts/txt/OF/");
+            Urls.Add(5, "https://opendata.dwd.de/weather/alerts/txt/PD/");
+            Urls.Add(6, "https://opendata.dwd.de/weather/alerts/txt/LZ/");
+            Urls.Add(7, "https://opendata.dwd.de/weather/alerts/txt/HA/");
+            Urls.Add(8, "https://opendata.dwd.de/weather/alerts/txt/EM/");
+
             using (WebClient client = new WebClient())
             {
                 client.Encoding = System.Text.Encoding.UTF7;
@@ -73,12 +73,13 @@ namespace ChaserAssistant
 
                         for (int i = 0; i < splitted.Length; i++)
                         {
+                            //Console.WriteLine(splitted[i]);
+                            //Console.WriteLine(landkreis);
                             if (string.IsNullOrWhiteSpace(splitted[i]))
                             {
                                 continue;
                             }
-                            // WWHA50 scheinen Seegebietswarnungen zu sein
-                            else if (!splitted[i].StartsWith("WWHA50") && splitted[i].Contains(landkreis))
+                            else if (splitted[i].StartsWith("WWHA50") && splitted[i].Contains(landkreis))
                             {
                                 counter++;
                                 //Console.WriteLine(counter.ToString() + " - " + address.Value + splitted[i]);
@@ -107,7 +108,7 @@ namespace ChaserAssistant
                 }
 
 
-               
+
             }
 
 
@@ -122,7 +123,7 @@ namespace ChaserAssistant
                 }
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("***** ChaserAssistant - aktuell gültige Warnungen für " + lk);
+                Console.WriteLine("***** ChaserAssistant - aktuell gültige Seewetter-Warnungen für " + lk);
                 Console.ForegroundColor = ConsoleColor.DarkCyan;
                 TextOutput.Show(warntexte.ToString());
                 return true;
@@ -131,7 +132,7 @@ namespace ChaserAssistant
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("***** ChaserAssistant - keine Warnungen für übergebenes Kennzeichen gefunden");
+                Console.WriteLine("***** ChaserAssistant - keine Warnungen für angegebenes Gebiet gefunden");
                 return false;
             }
 

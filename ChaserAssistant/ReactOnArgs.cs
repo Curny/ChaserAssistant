@@ -57,7 +57,29 @@ namespace ChaserAssistant
                     break;
 
                 case "--warn":
-                    Console.WriteLine("Not implemented yet, still in dev");
+                    WL_Region = parameter;
+                    if (CheckWarnung.Landkreis(parameter))
+                    {
+                        noerrors = true;
+                    }
+                    else
+                    {
+                        noerrors = false;
+                    }
+
+                    break;
+
+                case "--see":
+                    WL_Region = parameter;
+                    if (CheckSeeWarnungen.Landkreis(parameter))
+                    {
+                        noerrors = true;
+                    }
+                    else
+                    {
+                        noerrors = false;
+                    }
+
                     break;
 
                 default:
