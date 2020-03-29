@@ -27,14 +27,6 @@ namespace ChaserAssistant
     {
         public static Dictionary<int, string> WLB = new Dictionary<int, string>();
 
-
-        /// <summary>
-        /// Muss noch angepasst werden, es gibt nicht nur Dateien mit VHDL30, sondern auch VHDL31 
-        /// und pro Verzeichnis teils mehrere Gebiete (in Verz. LZ z. B. LG, LH, LI.....
-        /// Die machen es einem nicht leicht :)
-        /// </summary>
-        /// <returns>The filename on server.</returns>
-        /// <param name="url">URL.</param>
         public static string GetFilenameOnServer(string url)
         {
 
@@ -50,7 +42,7 @@ namespace ChaserAssistant
                     var encoded = System.Text.Encoding.UTF7.GetString(data);
 
                     string noHTML = Regex.Replace(encoded, @"<[^>]+>|&nbsp;", "").Trim();
-                    string noHTMLNormalised = Regex.Replace(noHTML, @"\s{2,}", " ");
+                    //string noHTMLNormalised = Regex.Replace(noHTML, @"\s{2,}", " ");
                     string filename = string.Empty;
 
                     string[] splitted = noHTML.Split(null);
@@ -64,6 +56,7 @@ namespace ChaserAssistant
                         }
                         else if (splitted[i].StartsWith("VHDL30"))
                         {
+                            // Hier liegen meherere Regionen in einem Verzeichnis und müssen auseinanderdividiert werden:
                             if (splitted[i].StartsWith("VHDL30_DWLG") && ReactOnArgs.WL_Region.ToLower()  == "sx")
                             {
                                 // Sachsen
@@ -138,47 +131,40 @@ namespace ChaserAssistant
 
                             else if (splitted[i].StartsWith("VHDL30_DWOG") && ReactOnArgs.WL_Region.ToLower() == "de")
                             {
-                                // Hessen
+                                // Ganz Deutschland
                                 counter++;
                                 WLB.Add(counter, splitted[i]);
                                 continue;
                             }
 
+                            // für alle Verzeichnisse, wo nicht mehrere Regionen im Verzeichnis liegen:
                             else if (!splitted[i].Contains("_DWL") && !splitted[i].Contains("_DWP") && !splitted[i].Contains("_DWH") && !splitted[i].Contains("_DWO"))
                             {
                                 counter++;
                                 WLB.Add(counter, splitted[i]);
                                 continue;
                             }
-
-
-                            
-
                         }
-
                     }
 
 
-
+                    // Hier holen wir den letzten (aktuellsten) Bericht aus der Liste:
                     foreach (var bericht in WLB)
                     {
+                        //DEBUG:
                         //Console.WriteLine(bericht.ToString());
 
                         if (bericht.Key == WLB.Count)
                         {
+                            //DEBUG:
                             //Console.WriteLine("Latest:");
                             //Console.WriteLine(bericht.ToString());
                             filename = bericht.Value;
-
                         }
 
                     }
 
                     return filename;
-
-                    //Console.WriteLine(noHTML);
-
-
                 }
                 catch (WebException we)
                 {
@@ -206,14 +192,10 @@ namespace ChaserAssistant
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("***** ChaserAssistant - aktuellster Warnlagebricht Region: " + region);
             Console.ForegroundColor = ConsoleColor.DarkCyan;
-            //Console.WriteLine(restURL);
-            //Console.ReadKey();
-
-
 
             switch (region)
             {
-                case "DE":
+                case "DE": // ganz Deutschland
                 case "de":
                     file = GetFilenameOnServer(MainClass.DE_PATH);
                     MainClass.dwdURL = MainClass.DE_PATH + file;
@@ -222,7 +204,7 @@ namespace ChaserAssistant
                     file = string.Empty;
                     break;
 
-                case "BW":
+                case "BW": // Baden-Württemberg
                 case "bw":
                     file = GetFilenameOnServer(MainClass.BW_PATH);
                     MainClass.dwdURL = MainClass.BW_PATH + file;
@@ -231,7 +213,7 @@ namespace ChaserAssistant
                     file = string.Empty;
                     break;
 
-                case "BY":
+                case "BY": // Bayern
                 case "by":
                     file = GetFilenameOnServer(MainClass.BY_PATH);
                     MainClass.dwdURL = MainClass.BY_PATH + file;
@@ -240,7 +222,7 @@ namespace ChaserAssistant
                     file = string.Empty;
                     break;
 
-                case "RPS":
+                case "RPS": // Rheinland-Pfalz und Saarland
                 case "rps":
                     file = GetFilenameOnServer(MainClass.OF_PATH);
                     MainClass.dwdURL = MainClass.OF_PATH + file;
@@ -249,7 +231,7 @@ namespace ChaserAssistant
                     file = string.Empty;
                     break;
                 
-                case "HE":
+                case "HE": // Hessem
                 case "he":
                     file = GetFilenameOnServer(MainClass.OF_PATH);
                     MainClass.dwdURL = MainClass.OF_PATH + file;

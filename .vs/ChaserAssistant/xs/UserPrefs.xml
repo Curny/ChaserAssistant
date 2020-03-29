@@ -1,15 +1,15 @@
 ﻿<Properties StartupConfiguration="{D9F2D555-5619-4EFF-80C6-F28BD4080BC0}|Default">
   <MonoDevelop.Ide.ItemProperties.ChaserAssistant PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ChaserAssistant/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ChaserAssistant/DisplayHelpText.cs">
     <Files>
-      <File FileName="ChaserAssistant/Program.cs" Line="15" Column="31" />
-      <File FileName="ChaserAssistant/ReactOnArgs.cs" Line="15" Column="43" />
-      <File FileName="ChaserAssistant/DisplayHelpText.cs" Line="21" Column="58" />
-      <File FileName="ChaserAssistant/ReadText.cs" Line="28" Column="1" />
-      <File FileName="ChaserAssistant/CheckFTPDir.cs" Line="6" Column="1" />
-      <File FileName="ChaserAssistant/CheckWarnung.cs" Line="46" Column="1" />
-      <File FileName="ChaserAssistant/Warnlagebericht2.cs" Line="47" Column="64" />
-      <File FileName="ChaserAssistant/Wochenvorhersage.cs" Line="6" Column="26" />
+      <File FileName="ChaserAssistant/Program.cs" Line="113" Column="78" />
+      <File FileName="ChaserAssistant/ReactOnArgs.cs" Line="1" Column="20" />
+      <File FileName="ChaserAssistant/DisplayHelpText.cs" Line="31" Column="124" />
+      <File FileName="ChaserAssistant/ReadText.cs" Line="26" Column="6" />
+      <File FileName="ChaserAssistant/CheckFTPDir.cs" Line="1" Column="20" />
+      <File FileName="ChaserAssistant/CheckWarnung.cs" Line="1" Column="20" />
+      <File FileName="ChaserAssistant/Warnlagebericht2.cs" Line="198" Column="47" />
+      <File FileName="ChaserAssistant/Wochenvorhersage.cs" Line="112" Column="61" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,7 +17,8 @@
           <Node name="ChaserAssistant" expanded="True">
             <Node name="ChaserAssistant" expanded="True">
               <Node name="References" expanded="True" />
-              <Node name="Program.cs" selected="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="DisplayHelpText.cs" selected="True" />
             </Node>
           </Node>
         </State>

@@ -17,6 +17,9 @@
 */
 
 using System;
+using System.Reflection;
+using System.Diagnostics;
+
 namespace ChaserAssistant
 {
     public static class DisplayHelpText
@@ -24,9 +27,9 @@ namespace ChaserAssistant
         public static void Output()
         {
             Console.Clear();
-            Console.WriteLine("\n===================================");
-            Console.WriteLine("=== ChaserAssistant Version 0.1 ===");
-            Console.WriteLine("===================================");
+            Console.WriteLine("\n==============================================");
+            Console.WriteLine("=== ChaserAssistant Version " + Assembly.GetEntryAssembly().GetName().Version + " ===");
+            Console.WriteLine("==============================================");
 
             Console.WriteLine("\nArguments:");
             Console.WriteLine("--wl <Region> : Warnlagebericht Region des DWD");

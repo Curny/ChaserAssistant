@@ -42,7 +42,7 @@ namespace ChaserAssistant
                     var encoded = System.Text.Encoding.UTF7.GetString(data);
 
                     string noHTML = Regex.Replace(encoded, @"<[^>]+>|&nbsp;", "").Trim();
-                    string noHTMLNormalised = Regex.Replace(noHTML, @"\s{2,}", " ");
+                    //string noHTMLNormalised = Regex.Replace(noHTML, @"\s{2,}", " ");
                     string filename = string.Empty;
 
                     string[] splitted = noHTML.Split(null);
@@ -78,15 +78,10 @@ namespace ChaserAssistant
                             //Console.WriteLine("Latest:");
                             //Console.WriteLine(bericht.ToString());
                             filename = bericht.Value;
-
                         }
-
                     }
 
                     return filename;
-
-                    //Console.WriteLine(noHTML);
-
 
                 }
                 catch (WebException we)
@@ -115,10 +110,6 @@ namespace ChaserAssistant
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("***** ChaserAssistant - aktuellste Wochenvorhersage DE:" + region);
             Console.ForegroundColor = ConsoleColor.DarkCyan;
-            //Console.WriteLine(restURL);
-            //Console.ReadKey();
-
-
 
             switch (region)
             {

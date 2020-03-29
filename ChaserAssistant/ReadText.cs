@@ -24,8 +24,6 @@ namespace ChaserAssistant
 {
     public static class ReadText
     {
-        internal static string remember = string.Empty;
-
         public static void GetWebsiteContent(string url)
         {
             using (WebClient client = new WebClient())
@@ -35,26 +33,16 @@ namespace ChaserAssistant
 
                 try
                 {
-
-
-                    //string ret = client.DownloadString(url);
-                    //Console.WriteLine(ret);
-
                     // Sonderzeichen ausmerzen
                     var data = client.DownloadData(url);
                     var encoded = System.Text.Encoding.UTF7.GetString(data);
 
                     Console.WriteLine(encoded);
-
-
                 }
                 catch (WebException we)
                 {
                     // WebException.Status holds useful information 
                     Console.WriteLine("WebException: " + we.Message + "\n" + we.Status.ToString() + "\nURL: " + MainClass.dwdURL);
-                    //Console.WriteLine("Vormals gewähltes land: " + remember);
-                    //Console.ReadKey();
-
                 }
                 catch (NotSupportedException ne)
                 {

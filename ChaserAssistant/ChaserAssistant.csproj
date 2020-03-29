@@ -45,7 +45,6 @@
     <Compile Include="CheckFTPDir.cs" />
     <Compile Include="DWDWarning.cs" />
     <Compile Include="ReactOnArgs.cs" />
-    <Compile Include="Warnlagebericht.cs" />
     <Compile Include="DisplayHelpText.cs" />
     <Compile Include="CheckWarnung.cs" />
     <Compile Include="Warnlagebericht2.cs" />
