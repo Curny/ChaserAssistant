@@ -120,7 +120,31 @@ namespace ChaserAssistant
                                 continue;
                             }
 
-                            else if (!splitted[i].Contains("_DWL") && !splitted[i].Contains("_DWP") && !splitted[i].Contains("_DWH"))
+                            else if (splitted[i].StartsWith("VHDL30_DWOI") && ReactOnArgs.WL_Region.ToLower() == "rps")
+                            {
+                                // Rheinland-Pfalz und Saarland
+                                counter++;
+                                WLB.Add(counter, splitted[i]);
+                                continue;
+                            }
+
+                            else if (splitted[i].StartsWith("VHDL30_DWOH") && ReactOnArgs.WL_Region.ToLower() == "he")
+                            {
+                                // Hessen
+                                counter++;
+                                WLB.Add(counter, splitted[i]);
+                                continue;
+                            }
+
+                            else if (splitted[i].StartsWith("VHDL30_DWOG") && ReactOnArgs.WL_Region.ToLower() == "de")
+                            {
+                                // Hessen
+                                counter++;
+                                WLB.Add(counter, splitted[i]);
+                                continue;
+                            }
+
+                            else if (!splitted[i].Contains("_DWL") && !splitted[i].Contains("_DWP") && !splitted[i].Contains("_DWH") && !splitted[i].Contains("_DWO"))
                             {
                                 counter++;
                                 WLB.Add(counter, splitted[i]);
@@ -216,19 +240,19 @@ namespace ChaserAssistant
                     file = string.Empty;
                     break;
 
-                case "RP":
-                case "rp":
-                    file = GetFilenameOnServer(MainClass.RPSR_PATH);
-                    MainClass.dwdURL = MainClass.RPSR_PATH + GetFilenameOnServer(MainClass.RPSR_PATH);
+                case "RPS":
+                case "rps":
+                    file = GetFilenameOnServer(MainClass.OF_PATH);
+                    MainClass.dwdURL = MainClass.OF_PATH + file;
                     ReadText.GetWebsiteContent(MainClass.dwdURL);
                     noerrors = true;
                     file = string.Empty;
                     break;
-
-                case "SR":
-                case "sr":
-                    file = GetFilenameOnServer(MainClass.RPSR_PATH);
-                    MainClass.dwdURL = MainClass.RPSR_PATH + file;
+                
+                case "HE":
+                case "he":
+                    file = GetFilenameOnServer(MainClass.OF_PATH);
+                    MainClass.dwdURL = MainClass.OF_PATH + file;
                     ReadText.GetWebsiteContent(MainClass.dwdURL);
                     noerrors = true;
                     file = string.Empty;

@@ -34,7 +34,7 @@ namespace ChaserAssistant
         public const string DE_PATH = "https://opendata.dwd.de/weather/alerts/txt/GER/";
         public const string BW_PATH = "https://opendata.dwd.de/weather/alerts/txt/SU/";
         public const string BY_PATH = "https://opendata.dwd.de/weather/alerts/txt/MS/";
-        public const string RPSR_PATH = "https://opendata.dwd.de/weather/alerts/txt/OF/";
+        public const string OF_PATH = "https://opendata.dwd.de/weather/alerts/txt/OF/";
         public const string PD_PATH = "https://opendata.dwd.de/weather/alerts/txt/PD/";
         public const string LZ_PATH = "https://opendata.dwd.de/weather/alerts/txt/LZ/";
         public const string HA_PATH = "https://opendata.dwd.de/weather/alerts/txt/HA/";
@@ -110,7 +110,7 @@ namespace ChaserAssistant
                             }
                             catch (Exception ex)
                             {
-                                Console.WriteLine("\n***** FEHLER:\n" + ex.Message.ToString());
+                                Console.WriteLine("\n***** FEHLER ReactOnArgs:\n" + ex.Message.ToString());
                             }
 
                             break;
