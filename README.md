@@ -1,6 +1,8 @@
 <h1>ChaserAssistant</h1>
 
-EARLY development stage!
+<b>EARLY development stage!</b>
+
+<i>Don't expect beauty at the moment, I'm more busy with getting all the text files read as the service does not offer API or JSON, only text files on the web server.</i>
 
 This is a little command-line tool written in C# / MONO to gather information which is interesting for StormChasing.
 
