@@ -1,0 +1,33 @@
+﻿<Properties StartupConfiguration="{D9F2D555-5619-4EFF-80C6-F28BD4080BC0}|Default">
+  <MonoDevelop.Ide.ItemProperties.ChaserAssistant PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ChaserAssistant/Wochenvorhersage.cs">
+    <Files>
+      <File FileName="ChaserAssistant/Program.cs" Line="15" Column="31" />
+      <File FileName="ChaserAssistant/ReactOnArgs.cs" Line="15" Column="43" />
+      <File FileName="ChaserAssistant/DisplayHelpText.cs" Line="21" Column="58" />
+      <File FileName="ChaserAssistant/ReadText.cs" Line="28" Column="21" />
+      <File FileName="ChaserAssistant/CheckFTPDir.cs" Line="6" Column="1" />
+      <File FileName="ChaserAssistant/CheckWarnung.cs" Line="46" Column="21" />
+      <File FileName="ChaserAssistant/Warnlagebericht2.cs" Line="47" Column="64" />
+      <File FileName="ChaserAssistant/Wochenvorhersage.cs" Line="6" Column="33" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ChaserAssistant" expanded="True">
+            <Node name="ChaserAssistant" expanded="True">
+              <Node name="References" expanded="True" />
+              <Node name="Wochenvorhersage.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

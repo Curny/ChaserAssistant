@@ -1,0 +1,7 @@
+/home/ww/Projects/ChaserAssistant/ChaserAssistant/bin/Debug/ChaserAssistant.exe
+/home/ww/Projects/ChaserAssistant/ChaserAssistant/bin/Debug/ChaserAssistant.pdb
+/home/ww/Projects/ChaserAssistant/ChaserAssistant/bin/Debug/Newtonsoft.Json.dll
+/home/ww/Projects/ChaserAssistant/ChaserAssistant/bin/Debug/Newtonsoft.Json.xml
+/home/ww/Projects/ChaserAssistant/ChaserAssistant/obj/x86/Debug/ChaserAssistant.csproj.CopyComplete
+/home/ww/Projects/ChaserAssistant/ChaserAssistant/obj/x86/Debug/ChaserAssistant.exe
+/home/ww/Projects/ChaserAssistant/ChaserAssistant/obj/x86/Debug/ChaserAssistant.pdb
