@@ -5,3 +5,11 @@
 /home/ww/Projects/ChaserAssistant/ChaserAssistant/obj/x86/Debug/ChaserAssistant.csproj.CopyComplete
 /home/ww/Projects/ChaserAssistant/ChaserAssistant/obj/x86/Debug/ChaserAssistant.exe
 /home/ww/Projects/ChaserAssistant/ChaserAssistant/obj/x86/Debug/ChaserAssistant.pdb
+/home/ww/Development/ChaserAssistant/ChaserAssistant/bin/Debug/ChaserAssistant.exe
+/home/ww/Development/ChaserAssistant/ChaserAssistant/bin/Debug/ChaserAssistant.pdb
+/home/ww/Development/ChaserAssistant/ChaserAssistant/bin/Debug/Newtonsoft.Json.dll
+/home/ww/Development/ChaserAssistant/ChaserAssistant/bin/Debug/Newtonsoft.Json.xml
+/home/ww/Development/ChaserAssistant/ChaserAssistant/obj/x86/Debug/ChaserAssistant.csprojAssemblyReference.cache
+/home/ww/Development/ChaserAssistant/ChaserAssistant/obj/x86/Debug/ChaserAssistant.csproj.CopyComplete
+/home/ww/Development/ChaserAssistant/ChaserAssistant/obj/x86/Debug/ChaserAssistant.exe
+/home/ww/Development/ChaserAssistant/ChaserAssistant/obj/x86/Debug/ChaserAssistant.pdb
