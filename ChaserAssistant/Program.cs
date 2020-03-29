@@ -23,6 +23,7 @@ namespace ChaserAssistant
     class MainClass
     {
 
+        // obsolete after setting up Wanlagebericht2.cs, will soon be removed
         public const string BW_WARNLAGEBRICHT = "https://opendata.dwd.de/weather/alerts/txt/SU/VHDL30_DWSG_";
         public const string BY_WARNLAGEBRICHT = "https://opendata.dwd.de/weather/alerts/txt/MS/VHDL30_DWMG_";
         public const string RP_WARNLAGEBRICHT = "https://opendata.dwd.de/weather/alerts/txt/OF/VHDL30_DWOI_";
