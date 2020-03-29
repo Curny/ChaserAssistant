@@ -8,6 +8,6 @@ Currently it supports the open data of the national German weather service (Deut
 
 V0.1:
 
---help            zeigt eine kurze Hilfe an, die auch die vom DWD verwendeten Regionen enthält
---wl <region>     zeigt den Warnlagebericht der betreffenden Region
+--help            zeigt eine kurze Hilfe an, die auch die vom DWD verwendeten Regionen enthält<br>
+--wl <region>     zeigt den Warnlagebericht der betreffenden Region<br>
 --wv <region>     zeigt die Wochenvorhersage der betreffenden Region. Bisher nur DE
