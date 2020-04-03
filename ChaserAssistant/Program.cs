@@ -21,16 +21,8 @@ using System;
 namespace ChaserAssistant
 {
     class MainClass
-    {
+    {    
 
-        // obsolete after setting up Wanlagebericht2.cs, will soon be removed
-        public const string BW_WARNLAGEBRICHT = "https://opendata.dwd.de/weather/alerts/txt/SU/VHDL30_DWSG_";
-        public const string BY_WARNLAGEBRICHT = "https://opendata.dwd.de/weather/alerts/txt/MS/VHDL30_DWMG_";
-        public const string RP_WARNLAGEBRICHT = "https://opendata.dwd.de/weather/alerts/txt/OF/VHDL30_DWOI_";
-        public const string SR_WARNLAGEBRICHT = "https://opendata.dwd.de/weather/alerts/txt/OF/VHDL30_DWOI_";
-        public const string PD_WARNLAGEBRICHT = "https://opendata.dwd.de/weather/alerts/txt/PD/VHDL30_DWPG_";
-
-        //new
         public const string DE_PATH = "https://opendata.dwd.de/weather/alerts/txt/GER/";
         public const string BW_PATH = "https://opendata.dwd.de/weather/alerts/txt/SU/";
         public const string BY_PATH = "https://opendata.dwd.de/weather/alerts/txt/MS/";
@@ -46,17 +38,14 @@ namespace ChaserAssistant
 
         public static void Main(string[] args)
         {
-
-
-            //string dwdURL = @"https://opendata.dwd.de/weather/alerts/txt/SU/";
             string warnlageLand = string.Empty;
             string restURL = string.Empty;
-            //string dwdURL = @"https://www.wettergefahren.de/warnungen/warnsituation.html?ort=Ehingen%20(Donau)";
-            //ReadText.GetWebsiteContent(dwdURL);
 
+            /*
             int datepart_d = DateTime.Now.Day;
             int datepart_h = DateTime.Now.Hour;
             int datepart_m = DateTime.Now.Minute;
+            */           
 
 
             // check for arguments in the command line

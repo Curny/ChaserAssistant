@@ -27,12 +27,18 @@ namespace ChaserAssistant
         public static void Output()
         {
             Console.Clear();
-            Console.WriteLine("\n==============================================");
-            Console.WriteLine("=== ChaserAssistant Version " + Assembly.GetEntryAssembly().GetName().Version + " ===");
-            Console.WriteLine("==============================================");
-            Console.WriteLine("\nArguments:");
+            Console.WriteLine("\n ================================================");
+            Console.WriteLine(" ===  ChaserAssistant Version " + Assembly.GetEntryAssembly().GetName().Version + "  ===");
+            Console.WriteLine(" ================================================");
+            Console.WriteLine(" ===    (c) Copyright 2020  Willy Weinmann    ===");
+            Console.WriteLine(" ===------------------------------------------===");
+            Console.WriteLine(" ===     GNU General Public License GPL v3    ===");
+            Console.WriteLine(" ===       This program is free software      ===");
+            Console.WriteLine(" === https://github.com/Curny/ChaserAssistant ===");
+            Console.WriteLine(" ================================================");
+            Console.WriteLine("\n Arguments:");
 
-            Console.WriteLine("--wl <Region> : Warnlagebericht Region des DWD");
+            Console.WriteLine(" --wl <Region> : Warnlagebericht Region des DWD");
             Console.WriteLine("\tRegionen:");
             Console.WriteLine("\t\tBB : Berlin + Brandenburg");
             Console.WriteLine("\t\tBW : Baden-Württemberg");
@@ -47,23 +53,44 @@ namespace ChaserAssistant
             Console.WriteLine("\t\tSHH: Schleswig-Holstein + Hamburg");
             Console.WriteLine("\t\tTH : Thüringen");
 
-            Console.WriteLine("\n--wv <Region> : Wochenvorhersage");
+            Console.WriteLine("\n --wv <Region> : Wochenvorhersage");
             Console.WriteLine("\tRegionen:");
             Console.WriteLine("\t\tDE: Deutschland");
 
-            Console.WriteLine("\n--warn <Autokennzeichen> : aktuelle Wetterwarnungen für Gebiet ausgeben");
+            Console.WriteLine("\n --warn <Autokennzeichen> : aktuelle Wetterwarnungen für Gebiet ausgeben");
 
-            Console.WriteLine("\n--see <gebiet> : Seewetterwarnungen, z. B. KA für Kattegatt");
+            Console.WriteLine("\n --see <Gebiet> : Seewetterwarnungen");
             Console.WriteLine("\tRegionen:");
-            Console.WriteLine("\t\tKA: Kattegatt");
-            Console.WriteLine("\t\tBO: Boddengewässe Ost");
-            Console.WriteLine("\t\tFO: Forties");
-            Console.WriteLine("\t\tHE: Helgoland");
-            Console.WriteLine("\t\tIJ: Ijsselmeer");
-            Console.WriteLine("\t\tKO: Engl. Kanal Ostteil");
-            Console.WriteLine("\t\tKW: Engl. Kanal Westteil");
+            Console.WriteLine("\t\tBO : Boddengewässe Ost");
+            Console.WriteLine("\t\tBS : Belte und Sund");
+            Console.WriteLine("\t\tDB : Deutsche Bucht");
+            Console.WriteLine("\t\tDG : Dogger");
+            Console.WriteLine("\t\tELB: Elbe von Hamburg bis Cuxhaven");
+            Console.WriteLine("\t\tELM: Elbmündung");
+            Console.WriteLine("\t\tFE : Fehmarn bis Rügen");
+            Console.WriteLine("\t\tFLF: Flensburg bis Fehmarn");
+            Console.WriteLine("\t\tFI : Fischer");
+            Console.WriteLine("\t\tFO : Forties");
+            Console.WriteLine("\t\tHE : Helgoland");
+            Console.WriteLine("\t\tIJ : Ijsselmeer");
+            Console.WriteLine("\t\tKA : Kattegatt");
+            Console.WriteLine("\t\tKO : Engl. Kanal Ostteil");
+            Console.WriteLine("\t\tKW : Engl. Kanal Westteil");
+            Console.WriteLine("\t\tNOF: Nordfriesische Küste");
+            Console.WriteLine("\t\tNO : Nördliche Ostsee");
+            Console.WriteLine("\t\tOO : Südöstliche Ostsee");
+            Console.WriteLine("\t\tOSF: Ostfriesische Küste");
+            Console.WriteLine("\t\tOSR: östlich Rügen");
+            Console.WriteLine("\t\tRB : Rigaischer Meerbusen");
+            Console.WriteLine("\t\tSK : Skagerrak");
+            Console.WriteLine("\t\tSN : Südwestliche Nordsee");
+            Console.WriteLine("\t\tSO : Südliche Ostsee");
+            Console.WriteLine("\t\tUT : Utsira");
+            Console.WriteLine("\t\tVI : Viking");
+            Console.WriteLine("\t\tWO : Westliche Ostsee");
+            Console.WriteLine("\t\tZO : Zentrale Ostsee");
 
-            Console.WriteLine("\n--checkdir <URL> : Webverzeichnis auslesen");
+            Console.WriteLine("\n --checkdir <URL> : Webverzeichnis auslesen");
             Console.WriteLine();
         }
     }

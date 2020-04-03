@@ -2,15 +2,13 @@
   <MonoDevelop.Ide.ItemProperties.ChaserAssistant PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="ChaserAssistant/DisplayHelpText.cs">
     <Files>
-      <File FileName="ChaserAssistant/Program.cs" Line="176" Column="36" />
+      <File FileName="ChaserAssistant/Program.cs" Line="48" Column="15" />
       <File FileName="ChaserAssistant/ReactOnArgs.cs" Line="76" Column="41" />
-      <File FileName="ChaserAssistant/DisplayHelpText.cs" Line="60" Column="47" />
-      <File FileName="ChaserAssistant/ReadText.cs" Line="53" Column="39" />
-      <File FileName="ChaserAssistant/CheckFTPDir.cs" Line="1" Column="20" />
-      <File FileName="ChaserAssistant/CheckWarnung.cs" Line="1" Column="1" />
-      <File FileName="ChaserAssistant/Warnlagebericht2.cs" Line="194" Column="61" />
-      <File FileName="ChaserAssistant/TextOutput.cs" Line="8" Column="35" />
+      <File FileName="ChaserAssistant/DisplayHelpText.cs" Line="42" Column="34" />
+      <File FileName="ChaserAssistant/ReadText.cs" Line="38" Column="77" />
       <File FileName="ChaserAssistant/CheckSeeWarnungen.cs" Line="85" Column="35" />
+      <File FileName="ChaserAssistant/CheckWarnung.cs" Line="38" Column="17" />
+      <File FileName="ChaserAssistant/Warnlagebericht2.cs" Line="310" Column="21" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -27,7 +25,7 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

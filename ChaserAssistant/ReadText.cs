@@ -36,7 +36,6 @@ namespace ChaserAssistant
                     // Sonderzeichen ausmerzen
                     var data = client.DownloadData(url);
                     var encoded = System.Text.Encoding.UTF7.GetString(data);
-
                     return encoded;
                     //Console.WriteLine(encoded);
                 }

@@ -1,0 +1,5 @@
+/home/ww/Development/ChaserAssistant/ChaserAssistant/bin/Release/ChaserAssistant.exe
+/home/ww/Development/ChaserAssistant/ChaserAssistant/bin/Release/Newtonsoft.Json.dll
+/home/ww/Development/ChaserAssistant/ChaserAssistant/bin/Release/Newtonsoft.Json.xml
+/home/ww/Development/ChaserAssistant/ChaserAssistant/obj/x86/Release/ChaserAssistant.csproj.CopyComplete
+/home/ww/Development/ChaserAssistant/ChaserAssistant/obj/x86/Release/ChaserAssistant.exe

@@ -108,7 +108,7 @@ namespace ChaserAssistant
 
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("***** ChaserAssistant - aktuellste Wochenvorhersage DE:" + region);
+            Console.WriteLine("***** ChaserAssistant - aktuellste Wochenvorhersage: " + region);
             Console.ForegroundColor = ConsoleColor.DarkCyan;
 
             switch (region)
@@ -118,6 +118,7 @@ namespace ChaserAssistant
                     file = GetFilenameOnServer(MainClass.DE_PATH);
                     MainClass.dwdURL = MainClass.DE_PATH + file;
                     ReadText.GetWebsiteContent(MainClass.dwdURL);
+                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
                     noerrors = true;
                     file = string.Empty;
                     break;
