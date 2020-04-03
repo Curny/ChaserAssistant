@@ -1,9 +1,9 @@
 
 ### [1.0.7398.25931] - 2020-04-03
-### VERY FIRST RELEASE ###
+### VERY FIRST RELEASE
 
 Faatures added:
---wl <Region> : <b>Warnlagebericht Region des DWD</b>
+--wl <Region> : ###Warnlagebericht Region des DWD
 	Regionen:
 		BB : Berlin + Brandenburg
 		BW : Baden-Württemberg
