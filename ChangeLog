@@ -1,9 +1,9 @@
 
 ### [1.0.7398.25931] - 2020-04-03
-### VERY FIRST RELEASE
+### VERY FIRST RELEASE ###
 
 Faatures added:
---wl <Region> : ###Warnlagebericht Region des DWD
+--wl <Region> : Warnlagebericht Region des DWD
 	Regionen:
 		BB : Berlin + Brandenburg
 		BW : Baden-Württemberg
@@ -18,13 +18,13 @@ Faatures added:
 		SHH: Schleswig-Holstein + Hamburg
 		TH : Thüringen
 
- --wv <Region> : <b>Wochenvorhersage</b>
+ --wv <Region> : Wochenvorhersage
 	Regionen:
 		DE: Deutschland
 
- --warn <Autokennzeichen> : <b>aktuelle Wetterwarnungen für Gebiet ausgeben</b>
+ --warn <Autokennzeichen> : aktuelle Wetterwarnungen für Gebiet ausgeben
 
- --see <Gebiet> : <b>Seewetterwarnungen</b>
+ --see <Gebiet> : Seewetterwarnungen
 	Regionen:
 		BO : Boddengewässe Ost
 		BS : Belte und Sund
@@ -55,4 +55,4 @@ Faatures added:
 		WO : Westliche Ostsee
 		ZO : Zentrale Ostsee
 
- --checkdir <URL> : <b>Webverzeichnis auslesen</b>
+ --checkdir <URL> : Webverzeichnis auslesen
