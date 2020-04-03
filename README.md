@@ -4,6 +4,9 @@ This is a little command-line tool written in C# / MONO to gather information wh
 
 Currently it supports the open data of the national German weather service (Deutscher Wetterdienst, DWD) which you can find under https://opendata.dwd.de/weather/alerts/txt
 
+I coded it with Monodevelop under Linux, yet it should work under Windows, too. 
+Just download and start from the shell.
+
 ![](https://weinmann.biz/images/ChaserAssistant/ChaserAssistant1.png)
 
 ![](https://weinmann.biz/images/ChaserAssistant/ChaserAssistant2.png)
