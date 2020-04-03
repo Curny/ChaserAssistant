@@ -3,7 +3,7 @@
 This is a little command-line tool written in C# / MONO to gather information which is interesting for StormChasing.
 
 Currently it supports the open data of the national German weather service (Deutscher Wetterdienst, DWD) which you can find under https://opendata.dwd.de/weather/alerts/txt
-
+![](https://weinmann.biz/images/ChaserAssistant/ChaserAssistant1.png)
 https://github.com/Curny/ChaserAssistant/wiki/ChaserAssistant-Screenshots
 
 More to come, more is planned :D
