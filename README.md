@@ -61,3 +61,7 @@ Features:
 		ZO : Zentrale Ostsee<br><br>
 
  --checkdir <URL> : Webverzeichnis auslesen
+
+<hr>
+
+file:///home/ww/Bilder/Bildschirmfoto%20von%202020-04-03%2016-55-47.png
