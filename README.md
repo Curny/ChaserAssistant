@@ -4,7 +4,7 @@ This is a little command-line tool written in C# / MONO to gather information wh
 
 Currently it supports the open data of the national German weather service (Deutscher Wetterdienst, DWD) which you can find under https://opendata.dwd.de/weather/alerts/txt
 
-<br><br>
+More to come, more is planned :D
 
 Features:
 <br><br>
