@@ -4,60 +4,60 @@ This is a little command-line tool written in C# / MONO to gather information wh
 
 Currently it supports the open data of the national German weather service (Deutscher Wetterdienst, DWD) which you can find under https://opendata.dwd.de/weather/alerts/txt
 
-
+<br><br>
 
 Features:
+<br><br>
+--wl <Region> : Warnlagebericht Region des DWD<br>
+	Regionen:<br>
+		BB : Berlin + Brandenburg<br>
+		BW : Baden-Württemberg<br>
+		BY : Bayern<br>
+		HE : Hessen<br>
+		MV : Mecklenburg-Vorpommern<br>
+		NB : Niedersachsen + Bremen<br>
+		NRW: Nordrhein-Westfalen<br>
+		RPS: Rheinland-Pfalz + Saarland<br>
+		SX : Sachsen<br>
+		SA : Sachsen-Anhalt<br>
+		SHH: Schleswig-Holstein + Hamburg<br>
+		TH : Thüringen<br><br>
 
---wl <Region> : Warnlagebericht Region des DWD
-	Regionen:
-		BB : Berlin + Brandenburg
-		BW : Baden-Württemberg
-		BY : Bayern
-		HE : Hessen
-		MV : Mecklenburg-Vorpommern
-		NB : Niedersachsen + Bremen
-		NRW: Nordrhein-Westfalen
-		RPS: Rheinland-Pfalz + Saarland
-		SX : Sachsen
-		SA : Sachsen-Anhalt
-		SHH: Schleswig-Holstein + Hamburg
-		TH : Thüringen
+ --wv <Region> : Wochenvorhersage<br>
+	Regionen:<br>
+		DE: Deutschland<br><br>
 
- --wv <Region> : Wochenvorhersage
-	Regionen:
-		DE: Deutschland
+ --warn <Autokennzeichen> : aktuelle Wetterwarnungen für Gebiet ausgeben<br><br>
 
- --warn <Autokennzeichen> : aktuelle Wetterwarnungen für Gebiet ausgeben
-
- --see <Gebiet> : Seewetterwarnungen
-	Regionen:
-		BO : Boddengewässe Ost
-		BS : Belte und Sund
-		DB : Deutsche Bucht
-		DG : Dogger
-		ELB: Elbe von Hamburg bis Cuxhaven
-		ELM: Elbmündung
-		FE : Fehmarn bis Rügen
-		FLF: Flensburg bis Fehmarn
-		FI : Fischer
-		FO : Forties
-		HE : Helgoland
-		IJ : Ijsselmeer
-		KA : Kattegatt
-		KO : Engl. Kanal Ostteil
-		KW : Engl. Kanal Westteil
-		NOF: Nordfriesische Küste
-		NO : Nördliche Ostsee
-		OO : Südöstliche Ostsee
-		OSF: Ostfriesische Küste
-		OSR: östlich Rügen
-		RB : Rigaischer Meerbusen
-		SK : Skagerrak
-		SN : Südwestliche Nordsee
-		SO : Südliche Ostsee
-		UT : Utsira
-		VI : Viking
-		WO : Westliche Ostsee
-		ZO : Zentrale Ostsee
+ --see <Gebiet> : Seewetterwarnungen<br>
+	Regionen:<br>
+		BO : Boddengewässe Ost<br>
+		BS : Belte und Sund<br>
+		DB : Deutsche Bucht<br>
+		DG : Dogger<br>
+		ELB: Elbe von Hamburg bis Cuxhaven<br>
+		ELM: Elbmündung<br>
+		FE : Fehmarn bis Rügen<br>
+		FLF: Flensburg bis Fehmarn<br>
+		FI : Fischer<br>
+		FO : Forties<br>
+		HE : Helgoland<br>
+		IJ : Ijsselmeer<br>
+		KA : Kattegatt<br>
+		KO : Engl. Kanal Ostteil<br>
+		KW : Engl. Kanal Westteil<br>
+		NOF: Nordfriesische Küste<br>
+		NO : Nördliche Ostsee<br>
+		OO : Südöstliche Ostsee<br>
+		OSF: Ostfriesische Küste<br>
+		OSR: östlich Rügen<br>
+		RB : Rigaischer Meerbusen<br>
+		SK : Skagerrak<br>
+		SN : Südwestliche Nordsee<br>
+		SO : Südliche Ostsee<br>
+		UT : Utsira<br>
+		VI : Viking<br>
+		WO : Westliche Ostsee<br>
+		ZO : Zentrale Ostsee<br><br>
 
  --checkdir <URL> : Webverzeichnis auslesen
