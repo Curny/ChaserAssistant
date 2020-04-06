@@ -17,27 +17,44 @@
 */
 
 using System;
+using System.Collections.Generic;
 
 namespace ChaserAssistant
 {
     class MainClass
     {    
 
-        public const string DE_PATH = "https://opendata.dwd.de/weather/alerts/txt/GER/";
-        public const string BW_PATH = "https://opendata.dwd.de/weather/alerts/txt/SU/";
-        public const string BY_PATH = "https://opendata.dwd.de/weather/alerts/txt/MS/";
-        public const string OF_PATH = "https://opendata.dwd.de/weather/alerts/txt/OF/";
-        public const string PD_PATH = "https://opendata.dwd.de/weather/alerts/txt/PD/";
-        public const string LZ_PATH = "https://opendata.dwd.de/weather/alerts/txt/LZ/";
-        public const string HA_PATH = "https://opendata.dwd.de/weather/alerts/txt/HA/";
-        public const string EM_PATH = "https://opendata.dwd.de/weather/alerts/txt/EM/";
+        //public const string DE_PATH = "https://opendata.dwd.de/weather/alerts/txt/GER/";
+        //public const string BW_PATH = "https://opendata.dwd.de/weather/alerts/txt/SU/";
+        //public const string BY_PATH = "https://opendata.dwd.de/weather/alerts/txt/MS/";
+        //public const string OF_PATH = "https://opendata.dwd.de/weather/alerts/txt/OF/";
+        //public const string PD_PATH = "https://opendata.dwd.de/weather/alerts/txt/PD/";
+        //public const string LZ_PATH = "https://opendata.dwd.de/weather/alerts/txt/LZ/";
+        //public const string HA_PATH = "https://opendata.dwd.de/weather/alerts/txt/HA/";
+        //public const string EM_PATH = "https://opendata.dwd.de/weather/alerts/txt/EM/";
 
         public static string dwdURL = string.Empty;
+        public static Dictionary<string, string> RegionPathDictionary = null;
         public static string toDo = string.Empty;
 
 
         public static void Main(string[] args)
         {
+            RegionPathDictionary = new Dictionary<string, string>();
+            RegionPathDictionary.Add("de", "https://opendata.dwd.de/weather/alerts/txt/GER/");
+            RegionPathDictionary.Add("bw", "https://opendata.dwd.de/weather/alerts/txt/SU/");
+            RegionPathDictionary.Add("by", "https://opendata.dwd.de/weather/alerts/txt/MS/");
+            RegionPathDictionary.Add("rps", "https://opendata.dwd.de/weather/alerts/txt/OF/");
+            RegionPathDictionary.Add("he", "https://opendata.dwd.de/weather/alerts/txt/OF/");
+            RegionPathDictionary.Add("bb", "https://opendata.dwd.de/weather/alerts/txt/PD/");
+            RegionPathDictionary.Add("mv", "https://opendata.dwd.de/weather/alerts/txt/PD/");
+            RegionPathDictionary.Add("sx", "https://opendata.dwd.de/weather/alerts/txt/LZ/");
+            RegionPathDictionary.Add("xa", "https://opendata.dwd.de/weather/alerts/txt/LZ/");
+            RegionPathDictionary.Add("th", "https://opendata.dwd.de/weather/alerts/txt/LZ/");
+            RegionPathDictionary.Add("nb", "https://opendata.dwd.de/weather/alerts/txt/HA/");
+            RegionPathDictionary.Add("sh", "https://opendata.dwd.de/weather/alerts/txt/HA/");
+            RegionPathDictionary.Add("nrw", "https://opendata.dwd.de/weather/alerts/txt/EM/");
+
             string warnlageLand = string.Empty;
             string restURL = string.Empty;
 

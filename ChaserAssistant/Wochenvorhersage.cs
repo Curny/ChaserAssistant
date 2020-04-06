@@ -26,12 +26,17 @@ namespace ChaserAssistant
     public static class Wochenvorhersage
     {
         public static Dictionary<int, string> WVHS = new Dictionary<int, string>();
+        public static bool noerrors = true;
 
         public static string GetFilenameOnServer(string url)
         {
 
             using (WebClient client = new WebClient())
             {
+                // next 2 lines mainly for Windows:
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
                 client.Encoding = System.Text.Encoding.UTF7;
                 client.Headers[HttpRequestHeader.UserAgent] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36";
 
@@ -69,7 +74,7 @@ namespace ChaserAssistant
 
 
 
-                    foreach (var bericht in WVHS)
+                    /*foreach (var bericht in WVHS)
                     {
                         //Console.WriteLine(bericht.ToString());
 
@@ -79,8 +84,8 @@ namespace ChaserAssistant
                             //Console.WriteLine(bericht.ToString());
                             filename = bericht.Value;
                         }
-                    }
-
+                    }*/
+                    filename = WVHS[WVHS.Count - 1];
                     return filename;
 
                 }
@@ -88,12 +93,14 @@ namespace ChaserAssistant
                 {
                     // WebException.Status holds useful information 
                     Console.WriteLine("WebException: " + we.Message + "\n" + we.Status.ToString() + "\nURL: " + MainClass.dwdURL);
+                    noerrors = false;
                     return "Error, WebException Wochenvorhersage";
                 }
                 catch (NotSupportedException ne)
                 {
                     // other errors 
                     Console.WriteLine("NotSupportedException: " + ne.Message);
+                    noerrors = false;
                     return "Error, NotSupportedException Wochenvorhersage";
                 }
             }
@@ -103,7 +110,6 @@ namespace ChaserAssistant
 
         public static bool Region(string region)
         {
-            bool noerrors = false;
             string file = string.Empty;
 
             Console.Clear();
@@ -111,6 +117,24 @@ namespace ChaserAssistant
             Console.WriteLine("***** ChaserAssistant - aktuellste Wochenvorhersage: " + region);
             Console.ForegroundColor = ConsoleColor.DarkCyan;
 
+            if (region.ToLower() == "de")
+            {
+                file = GetFilenameOnServer(MainClass.RegionPathDictionary[region.ToLower()]);
+                if (noerrors)
+                {
+                    MainClass.dwdURL = MainClass.RegionPathDictionary[region.ToLower()] + file;
+                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
+
+                    noerrors = true;
+                    file = string.Empty;
+                }
+            }
+            else
+            {
+                noerrors = false;
+            }
+
+            /*
             switch (region)
             {
                 case "DE":
@@ -128,6 +152,7 @@ namespace ChaserAssistant
                     noerrors = false;
                     break;
             }
+            */
 
             if (noerrors)
             {

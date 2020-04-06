@@ -1,14 +1,16 @@
-﻿<Properties StartupConfiguration="{D9F2D555-5619-4EFF-80C6-F28BD4080BC0}|Default">
+﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{D9F2D555-5619-4EFF-80C6-F28BD4080BC0}|Default">
   <MonoDevelop.Ide.ItemProperties.ChaserAssistant PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ChaserAssistant/Warnlagebericht2.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ChaserAssistant Status">
     <Files>
-      <File FileName="ChaserAssistant/Program.cs" Line="48" Column="15" />
+      <File FileName="ChaserAssistant/Program.cs" Line="34" Column="11" />
       <File FileName="ChaserAssistant/ReactOnArgs.cs" Line="76" Column="41" />
       <File FileName="ChaserAssistant/DisplayHelpText.cs" Line="42" Column="34" />
       <File FileName="ChaserAssistant/ReadText.cs" Line="38" Column="77" />
       <File FileName="ChaserAssistant/CheckSeeWarnungen.cs" Line="85" Column="35" />
       <File FileName="ChaserAssistant/CheckWarnung.cs" Line="38" Column="17" />
-      <File FileName="ChaserAssistant/Warnlagebericht2.cs" Line="192" Column="15" />
+      <File FileName="ChaserAssistant/Warnlagebericht2.cs" Line="224" Column="15" />
+      <File FileName="ChaserAssistant/Wochenvorhersage.cs" Line="130" Column="18" />
+      <File FileName="ChaserAssistant Status" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,7 +19,7 @@
             <Node name="ChaserAssistant" expanded="True">
               <Node name="References" expanded="True" />
               <Node name="Properties" expanded="True" />
-              <Node name="Warnlagebericht2.cs" selected="True" />
+              <Node name="Wochenvorhersage.cs" selected="True" />
             </Node>
           </Node>
         </State>

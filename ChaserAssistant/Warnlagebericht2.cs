@@ -25,13 +25,18 @@ namespace ChaserAssistant
 {
     public static class Warnlagebericht2
     {
-        public static Dictionary<int, string> WLB = new Dictionary<int, string>();
+        //public static Dictionary<int, string> WLB = new Dictionary<int, string>();
+        public static bool noerrors = true;
 
         public static string GetFilenameOnServer(string url)
         {
-
+            Dictionary<int, string> WLB = new Dictionary<int, string>();
             using (WebClient client = new WebClient())
             {
+                // next 2 lines are mainly for Windows:
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
                 client.Encoding = System.Text.Encoding.UTF7;
                 client.Headers[HttpRequestHeader.UserAgent] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36";
 
@@ -148,6 +153,7 @@ namespace ChaserAssistant
                     }
 
 
+                    /*
                     // Hier holen wir den letzten (aktuellsten) Bericht aus der Liste:
                     foreach (var bericht in WLB)
                     {
@@ -162,20 +168,23 @@ namespace ChaserAssistant
                             filename = bericht.Value;
                         }
 
-                    }
+                    }*/
 
+                    filename = WLB[WLB.Count - 1];
                     return filename;
                 }
                 catch (WebException we)
                 {
                     // WebException.Status holds useful information 
                     Console.WriteLine("WebException: " + we.Message + "\n" + we.Status.ToString() + "\nURL: " + MainClass.dwdURL);
+                    noerrors = false;
                     return "Error";
                 }
                 catch (NotSupportedException ne)
                 {
                     // other errors 
                     Console.WriteLine("NotSupportedException: " + ne.Message);
+                    noerrors = false;
                     return "Error";
                 }
             }
@@ -185,7 +194,7 @@ namespace ChaserAssistant
 
         public static bool Region(string region)
         {
-            bool noerrors = false;
+            //noerrors = false;
             string file = string.Empty;
 
             Console.Clear();
@@ -193,7 +202,26 @@ namespace ChaserAssistant
             Console.WriteLine("***** ChaserAssistant - aktuellster Warnlagebricht Region: " + region);
             Console.ForegroundColor = ConsoleColor.DarkCyan;
 
-            switch (region)
+            if (MainClass.RegionPathDictionary.ContainsKey(region.ToLower()))
+            {
+                file = GetFilenameOnServer(MainClass.RegionPathDictionary[region.ToLower()]);
+                if (noerrors)
+                {
+                    MainClass.dwdURL = MainClass.RegionPathDictionary[region.ToLower()] + file;
+                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
+
+                    // Sven
+                    // hier das noerrors Ergebnis von GetWebsiteContent prüfen!
+                    noerrors = true;
+                    file = string.Empty;
+                }
+            }
+            else
+            {
+                noerrors = false;
+            }
+
+            /*switch (region)
             {
                 case "DE": // ganz Deutschland
                 case "de":
@@ -316,7 +344,7 @@ namespace ChaserAssistant
 
                     noerrors = false;
                     break;
-            }
+            }*/
 
             if (noerrors)
             {
