@@ -55,6 +55,10 @@ namespace ChaserAssistant
     
             using (WebClient client = new WebClient())
             {
+                // next 2 lines are mainly for Windows:
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
                 client.Encoding = System.Text.Encoding.UTF7;
                 client.Headers[HttpRequestHeader.UserAgent] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36";
 
@@ -67,8 +71,8 @@ namespace ChaserAssistant
                         var encoded = System.Text.Encoding.UTF7.GetString(data);
 
                         string noHTML = Regex.Replace(encoded, @"<[^>]+>|&nbsp;", "").Trim();
-
                         string[] splitted = noHTML.Split(null);
+
                         int counter = 0;
 
                         for (int i = 0; i < splitted.Length; i++)
@@ -115,15 +119,16 @@ namespace ChaserAssistant
             {
                 foreach (var warnung in Warnungen)
                 {
-
-                    warntexte.Append("------------------------------------------");
+                    warntexte.AppendLine("------------------------------------------");
                     warntexte.Append(ReadText.GetWebsiteContent(warnung.Value));
                     //TextOutput.Show(warnung.Value);
                 }
+
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("***** ChaserAssistant - aktuell gültige Warnungen für " + lk);
                 Console.ForegroundColor = ConsoleColor.DarkCyan;
+
                 TextOutput.Show(warntexte.ToString());
                 return true;
             }
