@@ -25,13 +25,17 @@ namespace ChaserAssistant
 {
     public static class Warnlagebericht2
     {
-        public static Dictionary<int, string> WLB = new Dictionary<int, string>();
-
+        //public static Dictionary<int, string> WLB = new Dictionary<int, string>();
+        public static bool noerrors = true;
         public static string GetFilenameOnServer(string url)
         {
-
+            Dictionary<int, string> WLB = new Dictionary<int, string>();
             using (WebClient client = new WebClient())
             {
+                //das MUSS bei manchen Windows Versionen vor die Client Abfragen sonst Fehler "The request was aborted: Could not create SSL/TLS secure channel."
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
                 client.Encoding = System.Text.Encoding.UTF7;
                 client.Headers[HttpRequestHeader.UserAgent] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36";
 
@@ -163,19 +167,21 @@ namespace ChaserAssistant
                         }
 
                     }
-
+                    filename = WLB[WLB.Count - 1];
                     return filename;
                 }
                 catch (WebException we)
                 {
                     // WebException.Status holds useful information 
                     Console.WriteLine("WebException: " + we.Message + "\n" + we.Status.ToString() + "\nURL: " + MainClass.dwdURL);
+                    noerrors = false;
                     return "Error";
                 }
                 catch (NotSupportedException ne)
                 {
                     // other errors 
                     Console.WriteLine("NotSupportedException: " + ne.Message);
+                    noerrors = false;
                     return "Error";
                 }
             }
@@ -185,7 +191,6 @@ namespace ChaserAssistant
 
         public static bool Region(string region)
         {
-            bool noerrors = false;
             string file = string.Empty;
 
             Console.Clear();
@@ -193,130 +198,149 @@ namespace ChaserAssistant
             Console.WriteLine("***** ChaserAssistant - aktuellster Warnlagebricht Region: " + region);
             Console.ForegroundColor = ConsoleColor.DarkCyan;
 
-            switch (region)
+            if (MainClass.RegionPathDictionary.ContainsKey(region.ToLower()))
             {
-                case "DE": // ganz Deutschland
-                case "de":
-                    file = GetFilenameOnServer(MainClass.DE_PATH);
-                    MainClass.dwdURL = MainClass.DE_PATH + file;
+                file = GetFilenameOnServer(MainClass.RegionPathDictionary[region.ToLower()]);
+                if (noerrors)
+                {
+                    MainClass.dwdURL = MainClass.RegionPathDictionary[region.ToLower()] + file;
                     TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
+
+                    // Sven
+                    // hier das noerrors Ergebnis von GetWebsiteContent prüfen!
                     noerrors = true;
                     file = string.Empty;
-                    break;
-
-                case "BW": // Baden-Württemberg
-                case "bw":
-                    file = GetFilenameOnServer(MainClass.BW_PATH);
-                    MainClass.dwdURL = MainClass.BW_PATH + file;
-                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
-                    noerrors = true;
-                    file = string.Empty;
-                    break;
-
-                case "BY": // Bayern
-                case "by":
-                    file = GetFilenameOnServer(MainClass.BY_PATH);
-                    MainClass.dwdURL = MainClass.BY_PATH + file;
-                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
-                    noerrors = true;
-                    file = string.Empty;
-                    break;
-
-                case "RPS": // Rheinland-Pfalz und Saarland
-                case "rps":
-                    file = GetFilenameOnServer(MainClass.OF_PATH);
-                    MainClass.dwdURL = MainClass.OF_PATH + file;
-                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
-                    noerrors = true;
-                    file = string.Empty;
-                    break;
-                
-                case "HE": // Hessem
-                case "he":
-                    file = GetFilenameOnServer(MainClass.OF_PATH);
-                    MainClass.dwdURL = MainClass.OF_PATH + file;
-                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
-                    noerrors = true;
-                    file = string.Empty;
-                    break;
-
-                case "BB": // Berlin + Brandenburg
-                case "bb":
-                    file = GetFilenameOnServer(MainClass.PD_PATH);
-                    MainClass.dwdURL = MainClass.PD_PATH + file;
-                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
-                    noerrors = true;
-                    file = string.Empty;
-                    break;
-
-                case "MV": // Mecklenburg-Vorpommern
-                case "mv":
-                    file = GetFilenameOnServer(MainClass.PD_PATH);
-                    MainClass.dwdURL = MainClass.PD_PATH + file;
-                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
-                    noerrors = true;
-                    file = string.Empty;
-                    break;
-
-                case "SX": // Sachsen
-                case "sx":
-                    file = GetFilenameOnServer(MainClass.LZ_PATH);
-                    MainClass.dwdURL = MainClass.LZ_PATH + file;
-                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
-                    noerrors = true;
-                    file = string.Empty;
-                    break;
-
-                case "SA": // Sachsen-Anhalt
-                case "sa":
-                    file = GetFilenameOnServer(MainClass.LZ_PATH);
-                    MainClass.dwdURL = MainClass.LZ_PATH + file;
-                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
-                    noerrors = true;
-                    file = string.Empty;
-                    break;
-
-                case "TH": // Thüringen
-                case "th":
-                    file = GetFilenameOnServer(MainClass.LZ_PATH);
-                    MainClass.dwdURL = MainClass.LZ_PATH + file;
-                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
-                    noerrors = true;
-                    file = string.Empty;
-                    break;
-
-                case "NB": // Niedersachsen und Bremen
-                case "nb":
-                    file = GetFilenameOnServer(MainClass.HA_PATH);
-                    MainClass.dwdURL = MainClass.HA_PATH + file;
-                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
-                    noerrors = true;
-                    file = string.Empty;
-                    break;
-
-                case "SHH": // Schleswig-Holstein und Hamburg
-                case "shh":
-                    file = GetFilenameOnServer(MainClass.HA_PATH);
-                    MainClass.dwdURL = MainClass.HA_PATH + file;
-                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
-                    noerrors = true;
-                    file = string.Empty;
-                    break;
-
-                case "NRW": // Schleswig-Holstein und Hamburg
-                case "nrw":
-                    file = GetFilenameOnServer(MainClass.EM_PATH);
-                    MainClass.dwdURL = MainClass.EM_PATH + file;
-                    TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
-                    noerrors = true;
-                    file = string.Empty;
-                    break;
-
-                default:
-
-                    noerrors = false;
-                    break;
+                }
             }
+            else
+            {
+                noerrors = false;
+            }
+
+            //switch (region)
+            //{
+            //    case "DE": // ganz Deutschland
+            //    case "de":
+            //        file = GetFilenameOnServer(MainClass.DE_PATH);
+            //        MainClass.dwdURL = MainClass.DE_PATH + file;
+            //        TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
+            //        noerrors = true;
+            //        file = string.Empty;
+            //        break;
+
+            //    case "BW": // Baden-Württemberg
+            //    case "bw":
+            //        file = GetFilenameOnServer(MainClass.BW_PATH);
+            //        MainClass.dwdURL = MainClass.BW_PATH + file;
+            //        TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
+            //        noerrors = true;
+            //        file = string.Empty;
+            //        break;
+
+            //    case "BY": // Bayern
+            //    case "by":
+            //        file = GetFilenameOnServer(MainClass.BY_PATH);
+            //        MainClass.dwdURL = MainClass.BY_PATH + file;
+            //        TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
+            //        noerrors = true;
+            //        file = string.Empty;
+            //        break;
+
+            //    case "RPS": // Rheinland-Pfalz und Saarland
+            //    case "rps":
+            //        file = GetFilenameOnServer(MainClass.OF_PATH);
+            //        MainClass.dwdURL = MainClass.OF_PATH + file;
+            //        TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
+            //        noerrors = true;
+            //        file = string.Empty;
+            //        break;
+                
+            //    case "HE": // Hessem
+            //    case "he":
+            //        file = GetFilenameOnServer(MainClass.OF_PATH);
+            //        MainClass.dwdURL = MainClass.OF_PATH + file;
+            //        TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
+            //        noerrors = true;
+            //        file = string.Empty;
+            //        break;
+
+            //    case "BB": // Berlin + Brandenburg
+            //    case "bb":
+            //        file = GetFilenameOnServer(MainClass.PD_PATH);
+            //        MainClass.dwdURL = MainClass.PD_PATH + file;
+            //        TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
+            //        noerrors = true;
+            //        file = string.Empty;
+            //        break;
+
+            //    case "MV": // Mecklenburg-Vorpommern
+            //    case "mv":
+            //        file = GetFilenameOnServer(MainClass.PD_PATH);
+            //        MainClass.dwdURL = MainClass.PD_PATH + file;
+            //        TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
+            //        noerrors = true;
+            //        file = string.Empty;
+            //        break;
+
+            //    case "SX": // Sachsen
+            //    case "sx":
+            //        file = GetFilenameOnServer(MainClass.LZ_PATH);
+            //        MainClass.dwdURL = MainClass.LZ_PATH + file;
+            //        TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
+            //        noerrors = true;
+            //        file = string.Empty;
+            //        break;
+
+            //    case "SA": // Sachsen-Anhalt
+            //    case "sa":
+            //        file = GetFilenameOnServer(MainClass.LZ_PATH);
+            //        MainClass.dwdURL = MainClass.LZ_PATH + file;
+            //        TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
+            //        noerrors = true;
+            //        file = string.Empty;
+            //        break;
+
+            //    case "TH": // Thüringen
+            //    case "th":
+            //        file = GetFilenameOnServer(MainClass.LZ_PATH);
+            //        MainClass.dwdURL = MainClass.LZ_PATH + file;
+            //        TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
+            //        noerrors = true;
+            //        file = string.Empty;
+            //        break;
+
+            //    case "NB": // Niedersachsen und Bremen
+            //    case "nb":
+            //        file = GetFilenameOnServer(MainClass.HA_PATH);
+            //        MainClass.dwdURL = MainClass.HA_PATH + file;
+            //        TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
+            //        noerrors = true;
+            //        file = string.Empty;
+            //        break;
+
+            //    case "SHH": // Schleswig-Holstein und Hamburg
+            //    case "shh":
+            //        file = GetFilenameOnServer(MainClass.HA_PATH);
+            //        MainClass.dwdURL = MainClass.HA_PATH + file;
+            //        TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
+            //        noerrors = true;
+            //        file = string.Empty;
+            //        break;
+
+            //    case "NRW": // Schleswig-Holstein und Hamburg
+            //    case "nrw":
+            //        file = GetFilenameOnServer(MainClass.EM_PATH);
+            //        MainClass.dwdURL = MainClass.EM_PATH + file;
+            //        TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
+            //        noerrors = true;
+            //        file = string.Empty;
+            //        break;
+
+            //    default:
+
+            //        noerrors = false;
+            //        break;
+            //}
 
             if (noerrors)
             {

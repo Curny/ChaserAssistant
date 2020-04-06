@@ -55,6 +55,11 @@ namespace ChaserAssistant
 
             using (WebClient client = new WebClient())
             {
+                //für Windows:
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
+                //Sonderzeichen eliminieren
                 client.Encoding = System.Text.Encoding.UTF7;
                 client.Headers[HttpRequestHeader.UserAgent] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36";
 
@@ -117,7 +122,7 @@ namespace ChaserAssistant
                 foreach (var warnung in Warnungen)
                 {
 
-                    warntexte.Append("------------------------------------------");
+                    warntexte.AppendLine("-------------------------------------");
                     warntexte.Append(ReadText.GetWebsiteContent(warnung.Value));
                     //TextOutput.Show(warnung.Value);
                 }

@@ -25,6 +25,7 @@ namespace ChaserAssistant
 {
     public static class Wochenvorhersage
     {
+        public static bool noerrors = true;
         public static Dictionary<int, string> WVHS = new Dictionary<int, string>();
 
         public static string GetFilenameOnServer(string url)
@@ -32,6 +33,10 @@ namespace ChaserAssistant
 
             using (WebClient client = new WebClient())
             {
+                // das MUSS bei manchen Windows Versionen vor die Client Abfragen sonst Fehler "The request was aborted: Could not create SSL/TLS secure channel."
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
                 client.Encoding = System.Text.Encoding.UTF7;
                 client.Headers[HttpRequestHeader.UserAgent] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36";
 
@@ -68,18 +73,19 @@ namespace ChaserAssistant
                     }
 
 
+                    //alt
+                    //foreach (var bericht in WVHS)
+                    //{
+                    //    //Console.WriteLine(bericht.ToString());
 
-                    foreach (var bericht in WVHS)
-                    {
-                        //Console.WriteLine(bericht.ToString());
-
-                        if (bericht.Key == WVHS.Count)
-                        {
-                            //Console.WriteLine("Latest:");
-                            //Console.WriteLine(bericht.ToString());
-                            filename = bericht.Value;
-                        }
-                    }
+                    //    if (bericht.Key == WVHS.Count)
+                    //    {
+                    //        //Console.WriteLine("Latest:");
+                    //        //Console.WriteLine(bericht.ToString());
+                    //        filename = bericht.Value;
+                    //    }
+                    //}
+                    filename = WVHS[WVHS.Count - 1];
 
                     return filename;
 
@@ -88,12 +94,14 @@ namespace ChaserAssistant
                 {
                     // WebException.Status holds useful information 
                     Console.WriteLine("WebException: " + we.Message + "\n" + we.Status.ToString() + "\nURL: " + MainClass.dwdURL);
+                    noerrors = false;
                     return "Error, WebException Wochenvorhersage";
                 }
                 catch (NotSupportedException ne)
                 {
                     // other errors 
                     Console.WriteLine("NotSupportedException: " + ne.Message);
+                    noerrors = false;
                     return "Error, NotSupportedException Wochenvorhersage";
                 }
             }
@@ -103,7 +111,6 @@ namespace ChaserAssistant
 
         public static bool Region(string region)
         {
-            bool noerrors = false;
             string file = string.Empty;
 
             Console.Clear();
@@ -111,23 +118,42 @@ namespace ChaserAssistant
             Console.WriteLine("***** ChaserAssistant - aktuellste Wochenvorhersage: " + region);
             Console.ForegroundColor = ConsoleColor.DarkCyan;
 
-            switch (region)
+            if (region.ToLower() == "de")
             {
-                case "DE":
-                case "de":
-                    file = GetFilenameOnServer(MainClass.DE_PATH);
-                    MainClass.dwdURL = MainClass.DE_PATH + file;
-                    ReadText.GetWebsiteContent(MainClass.dwdURL);
+                file = GetFilenameOnServer(MainClass.RegionPathDictionary[region.ToLower()]);
+                if (noerrors)
+                {
+                    MainClass.dwdURL = MainClass.RegionPathDictionary[region.ToLower()] + file;
+                    
                     TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
+
                     noerrors = true;
                     file = string.Empty;
-                    break;
-
-                default:
-                    Console.WriteLine("Default ....: " + MainClass.dwdURL);
-                    noerrors = false;
-                    break;
+                }
             }
+            else
+            {
+                noerrors = false;
+            }
+
+            // alt:
+            //switch (region)
+            //{
+            //    case "DE":
+            //    case "de":
+            //        file = GetFilenameOnServer(MainClass.DE_PATH);
+            //        MainClass.dwdURL = MainClass.DE_PATH + file;
+            //        ReadText.GetWebsiteContent(MainClass.dwdURL);
+            //        TextOutput.Show(ReadText.GetWebsiteContent(MainClass.dwdURL));
+            //        noerrors = true;
+            //        file = string.Empty;
+            //        break;
+
+            //    default:
+            //        Console.WriteLine("Default ....: " + MainClass.dwdURL);
+            //        noerrors = false;
+            //        break;
+            //}
 
             if (noerrors)
             {
