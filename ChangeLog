@@ -1,3 +1,9 @@
+### [1.0.7428.19819] for Windows - 2020-04-03
+## Changed:
+	- Useragent now says ChaserAssistant/1.0
+## Removed:
+	- JSON.dll not needed, removed
+	
 
 ### [1.0.7398.25931] - 2020-04-03
 ### VERY FIRST RELEASE ###
