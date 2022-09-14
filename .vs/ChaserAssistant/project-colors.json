@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "8ffa2003-a03f-4d46-a9e3-c8cfb5b70fff": {
+      "ProjectGuid": "8ffa2003-a03f-4d46-a9e3-c8cfb5b70fff",
+      "DisplayName": "ChaserAssistantDotNet6",
+      "ColorIndex": 0
+    },
+    "d9f2d555-5619-4eff-80c6-f28bd4080bc0": {
+      "ProjectGuid": "d9f2d555-5619-4eff-80c6-f28bd4080bc0",
+      "DisplayName": "ChaserAssistant",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

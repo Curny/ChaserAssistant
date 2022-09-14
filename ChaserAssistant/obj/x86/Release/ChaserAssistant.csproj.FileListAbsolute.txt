@@ -3,3 +3,11 @@
 /home/ww/Development/ChaserAssistant/ChaserAssistant/bin/Release/Newtonsoft.Json.xml
 /home/ww/Development/ChaserAssistant/ChaserAssistant/obj/x86/Release/ChaserAssistant.csproj.CopyComplete
 /home/ww/Development/ChaserAssistant/ChaserAssistant/obj/x86/Release/ChaserAssistant.exe
+C:\Users\willy\source\repos\ChaserAssistant\ChaserAssistant\bin\Release\ChaserAssistant.exe
+C:\Users\willy\source\repos\ChaserAssistant\ChaserAssistant\bin\Release\Newtonsoft.Json.dll
+C:\Users\willy\source\repos\ChaserAssistant\ChaserAssistant\bin\Release\Newtonsoft.Json.xml
+C:\Users\willy\source\repos\ChaserAssistant\ChaserAssistant\obj\x86\Release\ChaserAssistant.csproj.AssemblyReference.cache
+C:\Users\willy\source\repos\ChaserAssistant\ChaserAssistant\obj\x86\Release\ChaserAssistant.csproj.SuggestedBindingRedirects.cache
+C:\Users\willy\source\repos\ChaserAssistant\ChaserAssistant\obj\x86\Release\ChaserAssistant.csproj.CoreCompileInputs.cache
+C:\Users\willy\source\repos\ChaserAssistant\ChaserAssistant\obj\x86\Release\ChaserAssistant.csproj.CopyComplete
+C:\Users\willy\source\repos\ChaserAssistant\ChaserAssistant\obj\x86\Release\ChaserAssistant.exe

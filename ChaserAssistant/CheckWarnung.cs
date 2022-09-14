@@ -35,11 +35,11 @@ namespace ChaserAssistant
 
             if (lk.Length == 1)
             {
-                landkreis = "_" + lk + "X";
+                landkreis = "_" + lk.ToUpper() + "X";
             }
             else
             {
-                landkreis = "_" + lk;
+                landkreis = "_" + lk.ToUpper();
             }
 
             StringBuilder warntexte = new StringBuilder();
